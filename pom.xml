@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.task.ss</groupId>
+    <artifactId>MonitoredStructuredStreaming</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <scala.version>2.11.8</scala.version>
+        <alchim31.version>3.4.6</alchim31.version>
+        <maven.version>3.7.0</maven.version>
+        <spark.version>2.4.0</spark.version>
+        <commons-collections4.version>4.1</commons-collections4.version>
+        <commons-lang3.version>3.7</commons-lang3.version>
+        <junit.version>4.12</junit.version>
+        <maven-failsafe-plugin.version>2.22.0</maven-failsafe-plugin.version>
+        <!-- The well-known skipITs property says to skip Maven Failsafe Plugin
+			integration-tests by default. Refer to http://maven.apache.org/surefire/maven-failsafe-plugin/examples/skipping-test.html.
+			Because we only want to execute the integration-test goal under special circumstances,
+			it's acceptable to pass in a special -DskipITs=false system property. Here's
+			how the Maven task in the energy master-integration test Bamboo plan is configured
+			(skipSurefireTests explained next): mvn clean verify -DskipITs=false -DskipSurefireTests=true
+			See: http://bamboo-dev.gridpoint.com/build/admin/edit/editBuildTasks.action?buildKey=GPUP-MIT-JOB1 -->
+        <skipITs>true</skipITs>
+        <!-- The custom skipSurefireTests property is applied to the skipTests
+            configuration on the maven-surefire-plugin to offer a way to disable unit
+            tests at the command line. We want to specially disable unit tests at the
+            same time we specially enable integration tests. Hence the two system properties
+            to reverse the defaults are passed passed into the special integration-test
+            build: mvn clean verify -DskipITs=false -DskipSurefireTests=true See: http://bamboo-dev.gridpoint.com/build/admin/edit/editBuildTasks.action?buildKey=GPUP-MIT-JOB1 -->
+        <skipSurefireTests>false</skipSurefireTests>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-core_2.11</artifactId>
+            <version>${spark.version}</version>
+            <!--<scope>provided</scope>-->
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-streaming -->
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-streaming_2.11</artifactId>
+            <version>${spark.version}</version>
+            <!--<scope>provided</scope>-->
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-sql -->
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-sql_2.11</artifactId>
+            <version>${spark.version}</version>
+            <!--<scope>compile</scope>-->
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-sql-kafka-0-10 -->
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-sql-kafka-0-10_2.11</artifactId>
+            <version>${spark.version}</version>
+            <!--<scope>provided</scope>-->
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-streaming-kafka-0-10_2.11</artifactId>
+            <version>${spark.version}</version>
+            <!--<scope>compile</scope>-->
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.kafka/kafka -->
+        <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka_2.11</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+    </dependencies>
+
+
+</project>

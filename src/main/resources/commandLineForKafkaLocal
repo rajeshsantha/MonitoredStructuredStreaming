@@ -1,0 +1,18 @@
+cd C:\kafka_2.12-2.3.0\bin\windows
+zookeeper-server-start.bat ../../config/zookeeper.properties
+kafka-server-start.bat ../../config/server.properties
+
+C:\kafka_2.12-2.3.0\bin\windows>echo "{"Name": "James","EmpID": 1,"City": "New Orleans","State": "LA","DeptID": 10}" | kafka-console-producer --broker-list localhost:9092 --topic  employeeTopic
+C:\kafka_2.12-2.3.0\bin\windows>echo "{"Name": "James","EmpID": 1,"City": "New Orleans","State": "LA","DeptID": 10}" | kafka-console-producer --broker-list localhost:9092 --topic  employeeTopic
+C:\kafka_2.12-2.3.0\bin\windows>echo "{"Name": "Josephine","EmpID": 2,"City": "Brighton","State": "MI","DeptID": 11}" | kafka-console-producer --broker-list localhost:9092 --topic  employeeTopic
+C:\kafka_2.12-2.3.0\bin\windows>kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic enrichedOutputDummyTopic          Created topic enrichedOutputDummyTopic.
+C:\kafka_2.12-2.3.0\bin\windows>kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic filteredOutputDummyTopic          Created topic filteredOutputDummyTopic.
+C:\kafka_2.12-2.3.0\bin\windows>echo "{"Name": "Art","EmpID": 3,"City": "Bridgeport","State": "NJ","DeptID": 33}" | kafka-console-producer --broker-list localhost:9092 --topic  employeeTopic
+C:\kafka_2.12-2.3.0\bin\windows>echo "{"Name": "Arti","EmpID": 100,"City": "Bridgeport","State": "NJ","DeptID": 30}" | kafka-console-producer --broker-list localhost:9092 --topic  employeeTopic
+C:\kafka_2.12-2.3.0\bin\windows>echo "{"Name": "Allen","EmpID": 101,"City": "Seattle","State": "DC","DeptID": 10}" | kafka-console-producer --broker-list localhost:9092 --topic  employeeTopic
+C:\kafka_2.12-2.3.0\bin\windows>echo "{"name":"file1with3records","action":"Update"}" | kafka-console-producer --broker-list localhost:9092 --topic  notificationTopic
+C:\kafka_2.12-2.3.0\bin\windows>echo "{"Name": "Robby","EmpID": 102,"City": "Seattle","State": "DC","DeptID": 15}" | kafka-console-producer --broker-list localhost:9092 --topic  employeeTopic
+C:\kafka_2.12-2.3.0\bin\windows>echo "{"name":"file1with4records","action":"Update"}" | kafka-console-producer --broker-list localhost:9092 --topic  notificationTopic
+C:\kafka_2.12-2.3.0\bin\windows>echo "{"Name": "Robbie","EmpID": 104,"City": "Seattle","State": "DC","DeptID": 15}" | kafka-console-producer --broker-list localhost:9092 --topic  employeeTopic
+C:\kafka_2.12-2.3.0\bin\windows>echo "{"Name": "GaryK","EmpID": 107,"City": "Seattle","State": "DC","DeptID": 25}" | kafka-console-producer --broker-list localhost:9092 --topic  employeeTopic
+C:\kafka_2.12-2.3.0\bin\windows>echo "{"Name": "GaryAgain","EmpID": 108,"City": "Seattle","State": "DC","DeptID": 25}" | kafka-console-producer --broker-list localhost:9092 --topic  employeeTopic
