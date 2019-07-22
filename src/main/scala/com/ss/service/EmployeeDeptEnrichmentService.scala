@@ -64,29 +64,6 @@ class EmployeeDeptEnrichmentService extends SparkConfiguration
       .toDF("DeptmentID", "DeptName", "DeptDescription")
   }
 
-  def doSomeOperation1(lookup_DF: DataFrame) = {
-
-    val employeeRAWDF = readEmployeeInputDF.get
-      .withColumn("cutted", expr("substring(value, 2, length(value)-3)")).drop("value")
-
-    val employeeDF = employeeRAWDF
-      .select(from_json(col("cutted").cast("string"), getEMPJsonSchema).as("finaldata")).select("finaldata.*")
-
-    val joinDF = employeeDF
-      .join(lookup_DF, employeeDF("DeptID") === lookup_DF("DeptmentID"), "left_outer")
-
-    val finalDF = joinDF
-      .withColumn("isMappingFound", when(expr("DeptName is not null"), lit("true")).otherwise(lit("false")))
-      .withColumn("resolvedDepartment", when(expr("DeptName is null"), lit("Not Found")).otherwise(col("DeptName")))
-      .drop("DeptName", "DeptID")
-
-    val managed_Emp_msg = finalDF.filter(col("isMappingFound") === "true")
-    val unmanaged_Emp_msg = finalDF.filter(col("isMappingFound") === "false")
-    val managed_EMP_Stream_msg = managed_Emp_msg.selectExpr("to_json(struct(*)) AS value").toDF()
-    val unmanaged_EMP_Stream_msg = unmanaged_Emp_msg.selectExpr("to_json(struct(*)) AS value").toDF()
-
-    writeEmployeeFilteredEventDFToKafka(managed_EMP_Stream_msg, unmanaged_EMP_Stream_msg)
-  }
 
   def doSomeOperation(lookup_DF: DataFrame) = {
 
