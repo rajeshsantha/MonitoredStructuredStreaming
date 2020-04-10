@@ -7,7 +7,7 @@ object Utilities {
 
   val getIndexJsonSchema = new StructType().add("index_name", StringType).add("action", StringType)
 
-  val getEMPJsonSchema =  new StructType()
+  val getEMPJsonSchema = new StructType()
     .add("Name", StringType)
     .add("EmpID", LongType)
     .add("City", StringType)

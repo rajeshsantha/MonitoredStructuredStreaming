@@ -1,7 +1,8 @@
 package com.ss.kafka
 
-import org.apache.spark.sql.DataFrame
 import com.ss.spark.SparkConfiguration
+import org.apache.spark.sql.DataFrame
+
 import scala.util.Try
 
 trait KafkaConsumerConfig extends KafkaParams with SparkConfiguration {

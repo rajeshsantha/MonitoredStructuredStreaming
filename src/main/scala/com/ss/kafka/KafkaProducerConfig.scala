@@ -8,7 +8,7 @@ import org.apache.spark.sql.streaming.{OutputMode, Trigger}
 trait KafkaProducerConfig extends KafkaParams with SparkConfiguration {
 
 
-  def writeEmployeeFilteredEventDFToKafka(managed: DataFrame, unmanaged: DataFrame): Unit = {
+  def writeEmployeeFilteredEventDFToKafka (managed: DataFrame, unmanaged: DataFrame): Unit = {
     try {
       println("Inside writeEmployeeFilteredEventDFToKafka ")
 
@@ -35,7 +35,7 @@ trait KafkaProducerConfig extends KafkaParams with SparkConfiguration {
         .start()
       println("both streams started")
 
-      resolvedEmployeeStream .awaitTermination()
+      resolvedEmployeeStream.awaitTermination()
       unresolvedEmployeeStream.awaitTermination()
 
     } catch {

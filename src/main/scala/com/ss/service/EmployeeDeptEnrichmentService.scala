@@ -36,8 +36,8 @@ class EmployeeDeptEnrichmentService extends SparkConfiguration
         (ds: DataFrame, batchId: Long) =>
           ds.show()
           println("inside foreachBatch")
-//re-reading the dataframe
-            lookupDF = getLookupDataFrame(file_path_lookup2)
+          //re-reading the dataframe
+          lookupDF = getLookupDataFrame(file_path_lookup2)
 
           doSomeOperation(lookupDF)
           println("called doSomeOps in foreachBatch")
@@ -54,7 +54,7 @@ class EmployeeDeptEnrichmentService extends SparkConfiguration
     }
   }
 
-  def getLookupDataFrame(file_path_lookup: String) = {
+  def getLookupDataFrame (file_path_lookup: String) = {
     spark
       .read
       .format("com.databricks.spark.csv")
@@ -65,7 +65,7 @@ class EmployeeDeptEnrichmentService extends SparkConfiguration
   }
 
 
-  def doSomeOperation(lookup_DF: DataFrame) = {
+  def doSomeOperation (lookup_DF: DataFrame) = {
 
     val employeeRAWDF = readEmployeeInputDF.get
       .withColumn("cutted", expr("substring(value, 2, length(value)-3)")).drop("value")
