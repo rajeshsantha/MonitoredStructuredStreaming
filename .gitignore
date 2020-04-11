@@ -1,0 +1,39 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Maven template
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+### Scala template
+*.class
+*.log
+
+.gitignore
+.idea/compiler.xml
+.idea/encodings.xml
+.idea/libraries/Maven__com_101tec_zkclient_0_10.xml
+.idea/libraries/Maven__com_yammer_metrics_metrics_core_2_2_0.xml
+.idea/libraries/Maven__log4j_log4j_1_2_17.xml
+.idea/libraries/Maven__net_sf_jopt_simple_jopt_simple_5_0_4.xml
+.idea/libraries/Maven__org_apache_kafka_kafka_2_11_1_0_0.xml
+out/
+src/test/
+target/classes/data/
+target/classes/departmentSample.csv
+target/classes/departmentSample2.csv
+target/classes/main/
+target/classes/sampleEmp17Rec.csv
+target/generated-sources/
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+/out

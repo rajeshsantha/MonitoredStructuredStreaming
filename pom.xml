@@ -15,6 +15,7 @@
         <alchim31.version>3.4.6</alchim31.version>
         <maven.version>3.7.0</maven.version>
         <spark.version>2.4.0</spark.version>
+
         <commons-collections4.version>4.1</commons-collections4.version>
         <commons-lang3.version>3.7</commons-lang3.version>
         <junit.version>4.12</junit.version>
