@@ -19,7 +19,7 @@ class IndependentGenericClass extends SparkConfiguration
       .csv(tempDirForStreaming)
 
     val filteredData = streamingData.filter("Quantity > 10")
-
+    //  filters to be added
 
     val query = filteredData.writeStream
       .format("console")
