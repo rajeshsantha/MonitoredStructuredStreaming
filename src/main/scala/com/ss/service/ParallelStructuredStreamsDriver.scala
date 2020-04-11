@@ -7,8 +7,8 @@ object ParallelStructuredStreamsDriver {
 
   def main (args: Array[String]): Unit = {
 
-    new EmployeeDeptEnrichmentService().filterEmployeeDeptAndEnrich
-    new IndependentGenericClass().genericMethod1()
+    //new EmployeeDeptEnrichmentService().filterEmployeeDeptAndEnrich
+    new IndependentGenericClass().genericMethod1
   }
 
 }
