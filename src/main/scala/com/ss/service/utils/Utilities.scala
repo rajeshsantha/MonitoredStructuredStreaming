@@ -5,6 +5,7 @@ import org.apache.spark.sql.types._
 object Utilities {
 
   val tempDirForStreaming = "G:\\Datasets\\TempFolderForStreaming"
+  val tempDirForStreamingForKDE = "/home/rajesh/Datasets/retailData/"
 
   val getIndexJsonSchema = new StructType().add("index_name", StringType).add("action", StringType)
 

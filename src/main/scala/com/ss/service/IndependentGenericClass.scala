@@ -1,4 +1,4 @@
-package main.scala.com.ss.service
+package com.ss.service
 
 import com.ss.kafka.{KafkaConsumerConfig, KafkaProducerConfig}
 import com.ss.service.utils.Utilities._
@@ -16,7 +16,7 @@ class IndependentGenericClass extends SparkConfiguration
     val streamingData = spark
       .readStream
       .schema(retailDataSchema)
-      .csv(tempDirForStreaming)
+      .csv(tempDirForStreamingForKDE)
 
     val filteredData = streamingData.filter("Quantity > 10")
     //  filters to be added
